@@ -4,40 +4,40 @@
 class Goods
 {
     public:
-        /* СТАТИЧЕСКИЕ методы -принадлежат классу */
+        /* РЎРўРђРўРР§Р•РЎРљРР• РјРµС‚РѕРґС‹ -РїСЂРёРЅР°РґР»РµР¶Р°С‚ РєР»Р°СЃСЃСѓ */
         static float AllObjCost(Goods* arr, int arrSize);
         static void PrintArr(Goods* arr, int arrSize);
         static void WriteFile(Goods* arr, int arrSize);
-        /* /СТАТИЧЕСКИЕ методы -принадлежат классу */
+         /* /РЎРўРђРўРР§Р•РЎРљРР• РјРµС‚РѕРґС‹ -РїСЂРёРЅР°РґР»РµР¶Р°С‚ РєР»Р°СЃСЃСѓ */
 
-        /* Конструкторы и деструкнор */
+        /* РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂС‹ Рё РґРµСЃС‚СЂСѓРєРЅРѕСЂ */
         Goods();
         Goods(std::string name, std::string category, float cost, int amount);
         virtual ~Goods();
-        /* /Конструкторы и деструкнор */
+        /* /РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂС‹ Рё РґРµСЃС‚СЂСѓРєРЅРѕСЂ */
 
-        /* сеттеры */
+        /* СЃРµС‚С‚РµСЂС‹ */
         void setName(std::string);
         void setCategory(std::string );
         void setCost(float);
         void setAmount(int);
-        /* /сеттеры */
+        /* /СЃРµС‚С‚РµСЂС‹ */
 
-        /* геттеры */
+        /* РіРµС‚С‚РµСЂС‹ */
         std::string getName();
         std::string getCategory();
         float getCost();
         int getAmount();
-        /* /геттеры */
+        /* /РіРµС‚С‚РµСЂС‹ */
 
-        /* Методы объекта*/
+        /* РњРµС‚РѕРґС‹ РѕР±СЉРµРєС‚Р°*/
         void selfPrint();
         void selfEdit(std::string name, std::string cat, float cst, int amnt);
         void selfEdit();
-        /* /Методы объекта*/
+        /* /РњРµС‚РѕРґС‹ РѕР±СЉРµРєС‚Р°*/
 
     private:
-        /*Поля объекта*/
+        /*РџРѕР»СЏ РѕР±СЉРµРєС‚Р°*/
         std::string name;
         std::string category;
         float cost;
