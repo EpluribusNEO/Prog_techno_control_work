@@ -19,17 +19,17 @@ void PairNumb::selfPrint(){
                 this->name.c_str(), this->first, this->second);
 }
 
-/* Гетеры */
+/* Р“РµС‚РµСЂС‹ */
 std::string PairNumb::getName(){ return this->name; }
 int PairNumb::getFirst(){ return this->first; }
 int PairNumb::getSecond(){ return this->second; }
-/* Гетеры */
+/* Р“РµС‚РµСЂС‹ */
 
-/* Сеттеры */
+/* Р“РµС‚РµСЂС‹ */
 void PairNumb::setName(std::string name){ this->name = name; }
 void PairNumb::setFirst(int first){ this->first = first; }
 void PairNumb::setSecond(int second){ this->second = second;}
-/* /Сеттеры */
+/* /Р“РµС‚РµСЂС‹ */
 
 PairNumb PairNumb::operator+(const PairNumb& right){
     std::string nm = name + "_" + right.name;
