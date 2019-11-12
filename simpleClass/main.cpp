@@ -7,18 +7,18 @@ int main()
 {
     cout << "Simple Class" << endl;
 
-    /* Указатели на Объекты */
+    /* РЈРєР°Р·Р°С‚РµР»Рё РЅР° РћР±СЉРµРєС‚С‹ */
     cout << "\n___Poiner:___" << endl;
-    PairNumb* ptrDef = new PairNumb(); //конструктор по уполчанию
+    PairNumb* ptrDef = new PairNumb(); //РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ СѓРїРѕР»С‡Р°РЅРёСЋ
     PairNumb* ptrNum = new PairNumb("myPoint", 3, 14);
     ptrDef->selfPrint();
     ptrNum->selfPrint();
-    /* Принудительно удалим Объекты */
+    /* РџСЂРёРЅСѓРґРёС‚РµР»СЊРЅРѕ СѓРґР°Р»РёРј РћР±СЉРµРєС‚С‹ */
     delete ptrDef;
     delete ptrNum;
-    /* /Указатели на Объекты */
+    /* /РЈРєР°Р·Р°С‚РµР»Рё РЅР° РћР±СЉРµРєС‚С‹ */
 
-    /* Объекты */
+    /* РћР±СЉРµРєС‚С‹ */
     cout << "\n___Objects:___" << endl;
     PairNumb Num2("two", 1000, 2000);
     PairNumb Num3("three", 11, 22);
@@ -28,7 +28,7 @@ int main()
     Num2.selfPrint();
     Num3.selfPrint();
     sum.selfPrint();
-    /* /Объекты */
+    /* /РћР±СЉРµРєС‚С‹ */
 
     return 0;
 }
