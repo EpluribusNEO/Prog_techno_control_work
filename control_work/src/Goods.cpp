@@ -3,12 +3,12 @@
 #include <sstream>
 #include <iomanip> /* setw */
 #include <iostream>
-#include <fstream> /* работа с файлом */
+#include <fstream> /* СЂР°Р±РѕС‚Р° СЃ С„Р°Р№Р»РѕРј */
 
-/* (Конструктор) поумолчанию */
+/* (РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ) РїРѕСѓРјРѕР»С‡Р°РЅРёСЋ */
 Goods::Goods():name("Noname"), category("None"), cost(0.0f), amount(0) {}
 
-/* (Конструктор) с параметрами */
+/* (РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ) СЃ РїР°СЂР°РјРµС‚СЂР°РјРё */
 Goods::Goods(std::string name, std::string category, float cost, int amount){
     this->name = name;
     this->category = category;
@@ -16,15 +16,15 @@ Goods::Goods(std::string name, std::string category, float cost, int amount){
     this->amount = amount;
 }
 
-/* (Деструктор) Вызывается при удаление объекта
- *  Выводит сообщение на экран при удаление...*/
+/* (Р”РµСЃС‚СЂСѓРєС‚РѕСЂ) Р’С‹Р·С‹РІР°РµС‚СЃСЏ РїСЂРё СѓРґР°Р»РµРЅРёРµ РѕР±СЉРµРєС‚Р°
+ *  (Р”РµСЃС‚СЂСѓРєС‚РѕСЂ) Р’С‹Р·С‹РІР°РµС‚СЃСЏ РїСЂРё СѓРґР°Р»РµРЅРёРµ РѕР±СЉРµРєС‚Р°...*/
 Goods::~Goods(){
-    std::cout<<"Объект Удалён!"<<std::endl;
+    std::cout<<"РћР±СЉРµРєС‚ РЈРґР°Р»С‘РЅ!"<<std::endl;
 }
 
- /* СТАТИЧЕСКИЕ методы (Принадлежат классу)
-  * (Статический) подсчитать общую стоимость объектов в массиве
-  * Принимает указатель на начало массива и размерность */
+ /* РЎРўРђРўРР§Р•РЎРљРР• РјРµС‚РѕРґС‹ (РџСЂРёРЅР°РґР»РµР¶Р°С‚ РєР»Р°СЃСЃСѓ)
+  * (РЎС‚Р°С‚РёС‡РµСЃРєРёР№) РїРѕРґСЃС‡РёС‚Р°С‚СЊ РѕР±С‰СѓСЋ СЃС‚РѕРёРјРѕСЃС‚СЊ РѕР±СЉРµРєС‚РѕРІ РІ РјР°СЃСЃРёРІРµ
+  * РџСЂРёРЅРёРјР°РµС‚ СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РЅР°С‡Р°Р»Рѕ РјР°СЃСЃРёРІР° Рё СЂР°Р·РјРµСЂРЅРѕСЃС‚СЊ */
  float Goods::AllObjCost(Goods* arr, int arrSize){
      float allObjCost = 0.0f;
      for(int i=0; i<arrSize; i++){
@@ -33,39 +33,39 @@ Goods::~Goods(){
      return allObjCost;
 }
 
-/* (Статический) Печатае массив объектов.
- * Принимает указатель на начало массива и размерность */
+/* (РЎС‚Р°С‚РёС‡РµСЃРєРёР№) РџРµС‡Р°С‚Р°Рµ РјР°СЃСЃРёРІ РѕР±СЉРµРєС‚РѕРІ.
+ * РџСЂРёРЅРёРјР°РµС‚ СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РЅР°С‡Р°Р»Рѕ РјР°СЃСЃРёРІР° Рё СЂР°Р·РјРµСЂРЅРѕСЃС‚СЊ */
 void Goods::PrintArr(Goods* arr, int arrSize){
-    std::cout << "\nВывод:" << std::endl;
-    std::cout << std::setw(12) << "Имя"
-        <<std::setw(12) << "Категория"
-        <<std::setw(12) << "Цена"
-        <<std::setw(10) << "Кол-во"
-        <<std::setw(10) << "Всего"
+    std::cout << "\nГ‚Г»ГўГ®Г¤:" << std::endl;
+    std::cout << std::setw(12) << "РРјСЏ"
+        <<std::setw(12) << "РљР°С‚РµРіРѕСЂРёСЏ"
+        <<std::setw(12) << "Р¦РµРЅР°"
+        <<std::setw(10) << "РљРѕР»-РІРѕ"
+        <<std::setw(10) << "Р’СЃРµРіРѕ"
         <<std::endl;
     for(int i=0; i<arrSize; i++){
         (arr +i)->selfPrint();
     }
 }
 
-/* (Статический) запись в файл.
- * Принимает указатель на начало массива и размерность*/
+/* (РЎС‚Р°С‚РёС‡РµСЃРєРёР№) Р·Р°РїРёСЃСЊ РІ С„Р°Р№Р».
+ * РџСЂРёРЅРёРјР°РµС‚ СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РЅР°С‡Р°Р»Рѕ РјР°СЃСЃРёРІР° Рё СЂР°Р·РјРµСЂРЅРѕСЃС‚СЊ*/
 void Goods::WriteFile(Goods* arr, int arrSize){
     char fileName[] = "myFile.txt";
     std::ofstream FOUT;
     FOUT.open(fileName);
     float totalCost = 0.0f;
 
-    /* записываем заголовки */
-    FOUT << std::setw(12) << "Имя"
-        <<std::setw(12) << "Категория"
-        <<std::setw(12) << "Цена"
-        <<std::setw(10) << "Кол-во"
-        <<std::setw(10) << "Всего"
+    /* Р·Р°РїРёСЃС‹РІР°РµРј Р·Р°РіРѕР»РѕРІРєРё */
+    FOUT << std::setw(12) << "РРјСЏ"
+        <<std::setw(12) << "РљР°С‚РµРіРѕСЂРёСЏ"
+        <<std::setw(12) << "Р¦РµРЅР°"
+        <<std::setw(10) << "РљРѕР»-РІРѕ"
+        <<std::setw(10) << "Р’СЃРµРіРѕ"
         <<std::endl;
-    /* /записываем заголовки */
+    /* /Р·Р°РїРёСЃС‹РІР°РµРј Р·Р°РіРѕР»РѕРІРєРё */
 
-    /* записываем данные объектов */
+    /* Р·Р°РїРёСЃС‹РІР°РµРј Р·Р°РіРѕР»РѕРІРєРё */
     for(int i=0; i<arrSize; i++){
          totalCost = (float)((float)(arr +i)->getAmount() * (arr +i)->getCost());
          FOUT << std::setw(12) << (arr +i)->getName()
@@ -77,12 +77,12 @@ void Goods::WriteFile(Goods* arr, int arrSize){
         totalCost = 0.0f;
     }
     FOUT.close();
-    std::cout << "Массив записан в файл!" << std::endl;
+    std::cout << "РњР°СЃСЃРёРІ Р·Р°РїРёСЃР°РЅ РІ С„Р°Р№Р»!" << std::endl;
 }
-/* /СТАТИЧЕСКИЕ методы */
+/* /РЎРўРђРўРР§Р•РЎРљРР• РјРµС‚РѕРґС‹ */
 
-/* Методы Объекта */
-/* вывод данных на экран (в отформатированном виде) */
+/* РњРµС‚РѕРґС‹ РћР±СЉРµРєС‚Р° */
+/* РІС‹РІРѕРґ РґР°РЅРЅС‹С… РЅР° СЌРєСЂР°РЅ (РІ РѕС‚С„РѕСЂРјР°С‚РёСЂРѕРІР°РЅРЅРѕРј РІРёРґРµ) */
 void Goods::selfPrint(){
     float totalCost = (float)((float)this->amount * this->cost);
     std::cout << std::setw(12) << this->name
@@ -93,7 +93,7 @@ void Goods::selfPrint(){
         <<std::endl;
 }
 
-/* редактирование объекта -Заменяет поля на новые (принимает параметры)*/
+/* СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РѕР±СЉРµРєС‚Р° -Р—Р°РјРµРЅСЏРµС‚ РїРѕР»СЏ РЅР° РЅРѕРІС‹Рµ (РїСЂРёРЅРёРјР°РµС‚ РїР°СЂР°РјРµС‚СЂС‹)*/
 void Goods::selfEdit(std::string name, std::string cat, float cost, int amount){
     this->name = name;
     this->category = cat;
@@ -101,40 +101,40 @@ void Goods::selfEdit(std::string name, std::string cat, float cost, int amount){
     this->amount = amount;
 }
 
-/* Редактирование объекта */
+/* Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РѕР±СЉРµРєС‚Р° */
 void Goods::selfEdit(){
     std::string name, category;
     int amount;
     float cost;
 
-    std::cout << "Наименование:>";
+    std::cout << "РќР°РёРјРµРЅРѕРІР°РЅРёРµ:>";
     std::cin >> name;
     this->setName(name);
 
-    std::cout << "Категория:>";
+    std::cout << "РљР°С‚РµРіРѕСЂРёСЏ:>";
     std::cin >> category;
     this->setCategory(category);
 
-    std::cout << "Стоимость:>";
+    std::cout << "РЎС‚РѕРёРјРѕСЃС‚СЊ:>";
     std::cin >> cost;
     this->setCost(cost);
 
-    std::cout << "Количество:>";
+    std::cout << "РљРѕР»РёС‡РµСЃС‚РІРѕ:>";
     std::cin >> amount;
     this->setAmount(amount);
 }
-/* /Методы Объекта */
+/* /РњРµС‚РѕРґС‹ РћР±СЉРµРєС‚Р° */
 
-/* Сеттеры */
+/* РЎРµС‚С‚РµСЂС‹ */
 void Goods::setName(std::string name){ this->name = name; }
 void Goods::setCategory(std::string cat){ this->category = cat; }
 void Goods::setCost(float cost){ this->cost = cost; }
 void Goods::setAmount(int amount){ this->amount = amount; }
-/* /Сеттеры */
+/* /РЎРµС‚С‚РµСЂС‹ */
 
-/* Геттеры */
+/* Р“РµС‚С‚РµСЂС‹ */
 std::string Goods::getName(){ return this->name; }
 std::string Goods::getCategory(){ return this->category; }
 float Goods::getCost(){ return this->cost; }
 int Goods::getAmount(){ return this->amount; }
-/* /Геттеры */
+/* /Р“РµС‚С‚РµСЂС‹ */
